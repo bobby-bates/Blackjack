@@ -5,56 +5,39 @@ require_relative 'hand'
 
 player = Hand.new('Player')
 dealer = Hand.new('Dealer')
-
-# binding.pry
-def deal(person)
-  deck = Deck.new
-  # binding.pry
-
-  2.times do |i|
-    # binding.pry
-    person.holding << deck.collection.pop
-    puts "#{person.who_is} was dealt #{person.holding[i].suit}#{person.holding[i].value}"
-    # binding.pry
-  end
-  # binding.pry
-end
-
+deck = Deck.new
 
 # binding.pry
 
 def prompt(person)
   input = nil
-  until input =~ /[hs]/
+  until input == 'h' || input == 's'
     print 'Hit or stand (H/S): '
     input = gets.chomp.downcase
     if input != 'h' && input != 's'
-      puts 'Invalid input!'
+      puts "\nInvalid input!"
     else
+      # binding.pry
       break
     end
   end
-  # score(person)
-  if input == 'h'
-    score(person)
-  elsif input == 's'
-    score(person)
-  end
-end
-
-def score(person)
   # binding.pry
-  puts 'woo!'
+
+  # person.score was running twice in the `until` loop so...
+  if input == 'h' || input == 's'
+    person.score
+  end
 end
 
 # All the calls:
 
 puts 'Welcome to Blackjack!'
-
-deal(player)
+puts
+# binding.pry
+deck.deal(player)
 # deal(dealer)
 
 prompt(player) if player.holding.count == 2
 
-score(player)
+# score(player)
 # binding.pry

@@ -12,7 +12,24 @@ class Hand
   end
 
   def score
+    # binding.pry
+    calculate_sum = @holding.inject(0) { |sum, card|
+      # binding.pry
+        if card.value == 'J' || card.value == 'Q' || card.value == 'K'
+          sum += 10
+        elsif card.value == 'A'
+          sum += 11
+          sum -= 10 if sum > 21
+          sum
+        else
+          sum += card.value.to_i
+        end
+    }
+    # binding.pry
+    @score = calculate_sum
 
+    puts "\nPlayer Score: #{@score}"
+    # binding.pry
   end
 end
 

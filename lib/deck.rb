@@ -17,6 +17,20 @@ class Deck
     @collection.shuffle!
     # binding.pry
   end
+
+  def deal(person)
+
+    # binding.pry
+
+    2.times do |i|
+      # binding.pry
+      person.holding << collection.pop
+      puts "#{person.who_is} was dealt #{person.holding[i].suit}#{person.holding[i].value}"
+      # binding.pry
+    end
+    # binding.pry
+    person.score
+  end
 end
 
 # deck = Deck.new
