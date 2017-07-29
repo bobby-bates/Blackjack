@@ -1,18 +1,19 @@
 require_relative 'card'
+require_relative 'deck'
 
 class Hand
-  attr_reader :who_is
+  attr_reader :cards
   attr_accessor :holding, :score
 
-  def initialize(who_is)
-    @who_is = who_is
+  def initialize(cards = [])
+    @cards = cards
     @holding = []
     @score = 0
   end
 
-  def score
+  def calculate_hand
     # binding.pry
-    calculate_sum = @holding.inject(0) { |sum, card|
+    @score = @holding.inject(0) { |sum, card|
       # binding.pry
       if card.value == 'J' || card.value == 'Q' || card.value == 'K'
         sum += 10
@@ -25,14 +26,9 @@ class Hand
       end
     }
     # binding.pry
-    @score = calculate_sum
 
     puts "\nPlayer Score: #{@score}"
     # binding.pry
-  end
-
-  def hit
-
   end
 end
 

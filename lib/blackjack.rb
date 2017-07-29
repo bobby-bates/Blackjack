@@ -42,6 +42,8 @@ def prompt(person)
   end
 end
 
+Blackjack.new
+
 # All the calls:
 
 puts 'Welcome to Blackjack!'

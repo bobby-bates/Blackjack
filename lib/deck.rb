@@ -23,7 +23,7 @@ class Deck
     cards.shuffle!
   end
 
-  def initial_hand(person)
+  def initial_hand(player)
     # binding.pry
     cards = []
     2.times do
@@ -36,6 +36,7 @@ class Deck
   def deal(player)
     card = cards.pop
     puts "#{player} was dealt #{card.to_output}"
+    card
   end
 end
 

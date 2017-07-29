@@ -7,18 +7,23 @@ class Card
     @value = value
   end
 
-  def card_type?
-    # binding.pry
-    if @value =~ /[JQK]/
-      @type = 'face'
-    elsif @value == 'A'
-      @type = 'ace'
-    else
-      @type = 'number'
-    end
-    # binding.pry
+  def to_output
+    "#{suit}#{value}"
   end
-end
+
+# NOTE OLD
+#   def card_type?
+#     # binding.pry
+#     if @value =~ /[JQK]/
+#       @type = 'face'
+#     elsif @value == 'A'
+#       @type = 'ace'
+#     else
+#       @type = 'number'
+#     end
+#     # binding.pry
+#   end
+# end
 
 # card = Card.new('A', '♠')
 # puts card.card_type?
