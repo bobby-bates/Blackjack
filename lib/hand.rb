@@ -5,15 +5,14 @@ class Hand
   attr_reader :cards
   attr_accessor :holding, :score
 
-  def initialize(cards = [])
+  def initialize(cards = initial_hand(player))
     @cards = cards
-    @holding = []
     @score = 0
   end
 
   def calculate_hand
     # binding.pry
-    @score = @holding.inject(0) { |sum, card|
+    @score = @cards.inject(0) { |sum, card|
       # binding.pry
       if card.value == 'J' || card.value == 'Q' || card.value == 'K'
         sum += 10

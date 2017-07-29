@@ -17,7 +17,11 @@ class Blackjack
   end
 
   def play_game
+    while is_playing == true
+      player
+      player.calculate_hand
 
+    end
   end
 end
 
