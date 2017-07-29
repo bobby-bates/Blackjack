@@ -24,10 +24,8 @@ class Deck
   end
 
   def initial_hand(player)
-    # binding.pry
     cards = []
     2.times do
-      # binding.pry
       cards << deal(player)
     end
     cards
@@ -35,11 +33,7 @@ class Deck
 
   def deal(player)
     card = cards.pop
-    puts "#{player} was dealt #{card.to_output}"
+    puts "#{player.name} was dealt #{card.to_output}"
     card
   end
 end
-
-# deck = Deck.new
-
-# binding.pry
