@@ -1,13 +1,26 @@
-require 'pry'
 require_relative 'card'
 require_relative 'deck'
 require_relative 'hand'
 
-player = Hand.new('Player')
-dealer = Hand.new('Dealer')
-deck = Deck.new
+class Blackjack
+  attr_reader :set_up_game, :play_game
 
-# binding.pry
+  def initialize(set_up_game, play_game)
+    @set_up_game = set_up_game
+    @play_game = play_game
+  end
+
+  def set_up_game
+    deck = Deck.new
+    player = Hand.new('Player')
+    dealer = Hand.new('Dealer')
+  end
+
+  def play_game
+
+  end
+end
+
 
 def prompt(person)
   input = nil

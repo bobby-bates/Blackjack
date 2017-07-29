@@ -1,19 +1,17 @@
-require 'pry'
-
 class Card
-  attr_reader :value, :suit
+  attr_reader :suit, :value
   attr_accessor :type
 
   def initialize(value, suit)
-    @value = value
     @suit = suit
+    @value = value
   end
 
   def card_type?
     # binding.pry
-    if /[JQK]/.match(@value)
+    if @value =~ /[JQK]/
       @type = 'face'
-    elsif /A/.match(@value)
+    elsif @value == 'A'
       @type = 'ace'
     else
       @type = 'number'
@@ -23,4 +21,4 @@ class Card
 end
 
 # card = Card.new('A', '♠')
-# card.card_type?
+# puts card.card_type?
